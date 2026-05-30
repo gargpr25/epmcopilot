@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>pg.ai · EPM Copilot</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body, #root { height: 100%; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #F5F5F7; color: #2E2E38;
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  }
+  button { font-family: inherit; }
+  ::selection { background: rgba(0,139,139,.18); }
+
+  /* slim scrollbars */
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-thumb { background: #d8d8e2; border-radius: 99px; border: 3px solid transparent; background-clip: content-box; }
+  ::-webkit-scrollbar-thumb:hover { background: #c2c2d0; background-clip: content-box; }
+
+  @keyframes pgPulse {
+    0%   { box-shadow: 0 0 0 0 rgba(0,196,140,.5); }
+    70%  { box-shadow: 0 0 0 6px rgba(0,196,140,0); }
+    100% { box-shadow: 0 0 0 0 rgba(0,196,140,0); }
+  }
+  @keyframes pgPulseBox {
+    0%   { box-shadow: 0 0 0 0 rgba(0,139,139,.35); }
+    60%  { box-shadow: 0 0 0 7px rgba(0,139,139,0); }
+    100% { box-shadow: 0 0 0 0 rgba(0,139,139,0); }
+  }
+  @keyframes pgSlideIn { from { opacity: 0; transform: translateX(16px); } to { opacity: 1; transform: none; } }
+  @keyframes pgSlideRight { from { transform: translateX(40px); opacity: .6; } to { transform: none; opacity: 1; } }
+  @keyframes pgFade { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes pgBlink { 50% { opacity: 0; } }
+  @keyframes pgSpin { to { transform: rotate(360deg); } }
+  @keyframes pgPop { 0% { transform: scale(.7); opacity: 0; } 60% { transform: scale(1.08); } 100% { transform: scale(1); opacity: 1; } }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <rect width="100" height="100" fill="#1A1A26"/>
+    <rect x="30" y="30" width="40" height="40" rx="9" fill="#FFE600"/>
+    <text x="50" y="63" font-family="Georgia, serif" font-size="26" font-weight="800" fill="#2E2E38" text-anchor="middle">pg</text>
+  </svg>
+</template>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<!-- data first (plain script) -->
+<script src="demo-data.js"></script>
+
+<!-- modules, in dependency order -->
+<script type="text/babel" src="shared.jsx"></script>
+<script type="text/babel" src="shell.jsx"></script>
+<script type="text/babel" src="intro.jsx"></script>
+<script type="text/babel" src="workspace.jsx"></script>
+<script type="text/babel" src="requirements.jsx"></script>
+<script type="text/babel" src="knowledge.jsx"></script>
+<script type="text/babel" src="app.jsx"></script>
+</body>
+</html>
